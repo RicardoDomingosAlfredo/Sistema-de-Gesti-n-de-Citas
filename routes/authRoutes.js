@@ -2,9 +2,8 @@ import express from 'express';
 
 const router = express.Router();
 
-// Ejemplo de ruta para login
-router.post('/login', (req, res) => {
-  res.json({ message: 'Login exitoso (ficticio)' });
+router.get('/', (req, res) => {
+  res.send('Ruta de autenticación funcionando');
 });
 
 export default router;
