@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Panel Funcionario</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="panel-container">
+    <h2>Panel Funcionario</h2>
+    <button onclick="verCitasAgendadas()">Ver Citas Agendadas</button>
+    <button onclick="confirmarAsistencia()">Confirmar Asistencia</button>
+    <button onclick="actualizarEstado()">Actualizar Estado</button>
+    <button onclick="buscarCiudadano()">Buscar Ciudadano por Apellido</button>
+    <button onclick="verHistorialFuncionario()">Historial de Citas</button>
+    <button class="logout" onclick="logout()">Cerrar Sesión</button>
+  </div>
+
+  <script>
+    function verCitasAgendadas() {
+      alert("Citas agendadas:\n- ID: 001, Fecha: 2024-07-15, Ciudadano: Juan Pérez\n- ID: 002, Fecha: 2024-07-16, Ciudadano: Ana Gómez");
+    }
+
+    function confirmarAsistencia() {
+      const citaId = prompt("Ingrese el ID de la cita para confirmar asistencia:");
+      if (citaId) {
+        alert(`Asistencia confirmada para la cita ID ${citaId}.`);
+      } else {
+        alert("Confirmación cancelada.");
+      }
+    }
+
+    function actualizarEstado() {
+      const citaId = prompt("Ingrese el ID de la cita para actualizar estado:");
+      const nuevoEstado = prompt("Ingrese el nuevo estado (Pendiente, Confirmada, Cancelada):");
+      if (citaId && nuevoEstado) {
+        alert(`Estado de la cita ID ${citaId} actualizado a: ${nuevoEstado}`);
+      } else {
+        alert("No se actualizó el estado.");
+      }
+    }
+
+    function buscarCiudadano() {
+      const apellido = prompt("Ingrese el apellido del ciudadano a buscar:");
+      if (apellido) {
+        alert(`Resultados de búsqueda para apellido "${apellido}":\n- Juan ${apellido}\n- María ${apellido}`);
+      } else {
+        alert("Búsqueda cancelada.");
+      }
+    }
+
+    function verHistorialFuncionario() {
+      alert("Historial de citas procesadas:\n- ID 001, Estado: Finalizada\n- ID 002, Estado: Cancelada");
+    }
+
+    function logout() {
+      if (confirm("¿Seguro que quieres cerrar sesión?")) {
+        window.location.href = "index.html";
+      }
+    }
+  </script>
+</body>
+</html>

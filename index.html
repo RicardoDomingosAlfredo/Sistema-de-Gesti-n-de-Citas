@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicio de Identificación Bengo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <h1>Servicio de Identificación Bengo</h1>
+    <p>Ministerio de Justicia y Derechos Humanos</p>
+  </header>
+
+  <div class="login-container">
+    <h2>Iniciar Sesión</h2>
+    <form id="loginForm">
+      <input id="username" type="text" placeholder="Usuario" required>
+      <input id="password" type="password" placeholder="Contraseña" required>
+      <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+      
+      <select id="role" required>
+        <option value="" disabled selected>Seleccione su rol</option>
+        <option value="ciudadano">Ciudadano</option>
+        <option value="funcionario">Funcionario</option>
+        <option value="admin">Administrador</option>
+      </select>
+      
+      <button type="submit">Iniciar Sesión</button>
+      
+      <div class="register-link">
+        ¿No tienes cuenta? <a href="registro.html">Registrarse aquí</a>
+      </div>
+    </form>
+  </div>
+
+  <footer class="footer">
+    <p>© 2025 Ministerio de Justicia y Derechos Humanos</p>
+    <div class="footer-links">
+      <a href="terminos.html">Términos</a>
+      <a href="privacidad.html">Privacidad</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="ayuda.html">Ayuda</a>
+    </div>
+  </footer>
+
+  <script src="auth.js"></script>
+</body>
+</html>

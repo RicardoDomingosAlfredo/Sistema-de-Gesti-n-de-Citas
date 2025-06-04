@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel del Ciudadano</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">
+        <h1>Servicio de Identificación Bengo</h1>
+        <p>Ministerio de Justicia y Derechos Humanos</p>
+      </div>
+      <div class="user-info">
+        <span id="user-name"></span>
+        <button onclick="logout()" class="btn-logout">Cerrar Sesión</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-container">
+    <aside class="sidebar">
+      <div class="profile-card">
+        <div class="profile-info">
+          <h3>Información Personal</h3>
+          <p><strong>DNI:</strong> <span id="user-dni"></span></p>
+          <p><strong>Último acceso:</strong> <span id="last-access"></span></p>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <button onclick="agendarCita()" class="nav-btn">Agendar Cita</button>
+        <button onclick="consultarEstado()" class="nav-btn">Consultar Estado</button>
+        <button onclick="actualizarInformacion()" class="nav-btn">Actualizar Datos</button>
+        <button onclick="verHistorial()" class="nav-btn">Historial</button>
+      </nav>
+    </aside>
+
+    <section class="content">
+      <h2>Mis Citas Programadas</h2>
+      <div class="table-container">
+        <table id="citas-table" class="data-table">
+          <!-- Citas se cargarán aquí dinámicamente -->
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>© 2025 Servicio de Identificación Bengo. Todos los derechos reservados.</p>
+      <div class="footer-links">
+        <a href="#">Términos de servicio</a>
+        <a href="#">Política de privacidad</a>
+        <a href="#">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="auth.js"></script>
+  <script src="panel_ciudadano.js"></script>
+</body>
+</html>

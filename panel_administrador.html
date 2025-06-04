@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Administración</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <h1>Panel de Administración</h1>
+    <button onclick="logout()" class="logout-btn">Cerrar Sesión</button>
+  </header>
+
+  <div class="admin-container">
+    <aside class="sidebar">
+      <div class="user-info">
+        <h3 id="admin-name"></h3>
+        <p id="admin-role"></p>
+        <p id="admin-email"></p>
+        <p id="admin-phone"></p>
+      </div>
+      <nav>
+        <button class="active" onclick="showSection('users')">Usuarios</button>
+        <button onclick="showSection('stats')">Estadísticas</button>
+        <button onclick="showSection('settings')">Configuración</button>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <section id="users-section" class="content-section">
+        <h2>Gestión de Usuarios</h2>
+        <div class="table-container">
+          <table id="users-table">
+            <!-- Usuarios se cargarán aquí -->
+          </table>
+        </div>
+      </section>
+
+      <section id="stats-section" class="content-section hidden">
+        <h2>Estadísticas del Sistema</h2>
+        <div class="stats-grid">
+          <!-- Estadísticas se cargarán aquí -->
+        </div>
+      </section>
+
+      <section id="settings-section" class="content-section hidden">
+        <h2>Configuración del Sistema</h2>
+        <!-- Configuración se cargará aquí -->
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <p>© 2025 Servicio de Identificación Bengo</p>
+  </footer>
+
+  <script src="auth.js"></script>
+  <script src="panel_admin.js"></script>
+</body>
+</html>

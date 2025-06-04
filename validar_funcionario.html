@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Validar Funcionarios</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <h1>Panel de Validación de Funcionarios</h1>
+    <button onclick="logout()">Cerrar Sesión</button>
+  </header>
+  <div class="login-container">
+    <h2>Funcionarios Pendientes de Validación</h2>
+    <table id="tabla-funcionarios">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Usuario</th>
+          <th>Email</th>
+          <th>Teléfono</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script>
+    const token = localStorage.getItem('token');
+
+    async function obtenerFuncionariosPendientes() {
+      const res = await fetch('https://muenho.es/api/funcionarios/pendientes', {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      const data = await res.json();
+
+      const tbody = document.querySelector('#tabla-funcionarios tbody');
+      tbody.innerHTML = '';
+
+      data.forEach(funcionario => {
+        const fila = document.createElement('tr');
+        fila.innerHTML = `
+          <td>${funcionario.nombre}</td>
+          <td>${funcionario.username}</td>
+          <td>${funcionario.email}</td>
+          <td>${funcionario.telefono}</td>
+          <td><button onclick="validarFuncionario('${funcionario._id}')">Validar</button></td>
+        `;
+        tbody.appendChild(fila);
+      });
+    }
+
+    async function validarFuncionario(id) {
+      await fetch(`https://muenho.es/api/funcionarios/validar/${id}`, {
+        method: 'PUT',
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      obtenerFuncionariosPendientes();
+    }
+
+    function logout() {
+      localStorage.clear();
+      window.location.href = '/index.html';
+    }
+
+    obtenerFuncionariosPendientes();
+  </script>
+</body>
+</html>
