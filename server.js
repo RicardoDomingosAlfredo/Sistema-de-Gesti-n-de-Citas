@@ -24,14 +24,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Test DB connection
 pool.getConnection()
   .then(connection => {
-    console.log(' Conexión a la base de datos establecida');
+    console.log('Conexión a la base de datos establecida');
     connection.release();
   })
   .catch(err => {
     console.error('Error conectando a la base de datos:', err);
   });
 
-// Routes
+// Ruta raíz de prueba
+app.get('/', (req, res) => {
+  res.send('API del Sistema de Citas funcionando ');
+});
+
+// Rutas de la API
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/citas', citaRoutes);
@@ -42,6 +47,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Error en el servidor' });
 });
 
+// Inicio del servidor
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
