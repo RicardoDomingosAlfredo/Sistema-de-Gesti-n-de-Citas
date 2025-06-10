@@ -2,19 +2,25 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Panel Funcionario</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="panel-container">
-    <h2>Panel Funcionario</h2>
-    <button onclick="verCitasAgendadas()">Ver Citas Agendadas</button>
-    <button onclick="confirmarAsistencia()">Confirmar Asistencia</button>
-    <button onclick="actualizarEstado()">Actualizar Estado</button>
-    <button onclick="buscarCiudadano()">Buscar Ciudadano por Apellido</button>
-    <button onclick="verHistorialFuncionario()">Historial de Citas</button>
-    <button class="logout" onclick="logout()">Cerrar Sesión</button>
-  </div>
+  <header class="header">
+    <div class="header-content container">
+      <h1>Panel Funcionario</h1>
+      <button class="btn-logout" onclick="logout()">Cerrar Sesión</button>
+    </div>
+  </header>
+
+  <main class="panel-funcionario container">
+    <button class="action-btn" onclick="verCitasAgendadas()">Ver Citas Agendadas</button>
+    <button class="action-btn" onclick="confirmarAsistencia()">Confirmar Asistencia</button>
+    <button class="action-btn" onclick="actualizarEstado()">Actualizar Estado</button>
+    <button class="action-btn" onclick="buscarCiudadano()">Buscar Ciudadano por Apellido</button>
+    <button class="action-btn" onclick="verHistorialFuncionario()">Historial de Citas</button>
+  </main>
 
   <script>
     function verCitasAgendadas() {

@@ -12,7 +12,7 @@ function login() {
   // Redirige al panel correspondiente
   switch (role) {
     case "ciudadano":
-      window.location.href = "panel_ciudadano.html";
+      window.location.href = "public panel_ciudadano.html";
       break;
     case "funcionario":
       window.location.href = "panel_funcionario.html";

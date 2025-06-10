@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Servicio de Identificación Bengo</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Servicio de Identificación Bengo - Login</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="header">
@@ -15,19 +15,12 @@
   <div class="login-container">
     <h2>Iniciar Sesión</h2>
     <form id="loginForm">
-      <input id="username" type="text" placeholder="Usuario" required>
-      <input id="password" type="password" placeholder="Contraseña" required>
+      <input id="username" type="text" placeholder="👤 Usuario" required />
+      <input id="password" type="password" placeholder="🔒︎ Contraseña" required />
       <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
-      
-      <select id="role" required>
-        <option value="" disabled selected>Seleccione su rol</option>
-        <option value="ciudadano">Ciudadano</option>
-        <option value="funcionario">Funcionario</option>
-        <option value="admin">Administrador</option>
-      </select>
-      
+
       <button type="submit">Iniciar Sesión</button>
-      
+
       <div class="register-link">
         ¿No tienes cuenta? <a href="registro.html">Registrarse aquí</a>
       </div>
@@ -41,9 +34,10 @@
       <a href="privacidad.html">Privacidad</a>
       <a href="contacto.html">Contacto</a>
       <a href="ayuda.html">Ayuda</a>
+      <a href="panel_funcionario.html">panel_funcionario</a>
     </div>
   </footer>
 
-  <script src="auth.js"></script>
+  <script src="../auth.js"></script>
 </body>
 </html>

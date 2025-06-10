@@ -48,7 +48,7 @@ function loadCitas() {
         <td class="status-${cita.estado.toLowerCase()}">${cita.estado}</td>
         <td>
           ${cita.estado === 'Pendiente' ? 
-            `<button onclick="cancelCita(${index})" class="btn-cancel">Cancelar</button>` : 
+            `<button onclick="cancelarCitaTabla(${index})" class="btn-cancel">Cancelar</button>` : 
             ''}
         </td>
       </tr>
@@ -59,7 +59,8 @@ function loadCitas() {
   table.innerHTML = tableHTML;
 }
 
-function agendarCita() {
+function marcarCita() {
+  // Mostrar modal para agendar nueva cita
   const modalHTML = `
     <div class="modal" id="cita-modal">
       <div class="modal-content">
@@ -128,7 +129,7 @@ function submitCita() {
   alert('Cita agendada con éxito');
 }
 
-function cancelCita(index) {
+function cancelarCitaTabla(index) {
   if (!confirm('¿Está seguro que desea cancelar esta cita?')) return;
 
   let citas = JSON.parse(localStorage.getItem('citas'));
@@ -139,27 +140,36 @@ function cancelCita(index) {
   alert('Cita cancelada con éxito');
 }
 
+// Función para el botón "Cancelar Cita" del menú (puedes completar su lógica)
+function cancelarCita() {
+  alert('Función para cancelar cita general en desarrollo');
+}
+
+// Función para el botón "Modificar Cita" del menú (puedes completar su lógica)
+function modificarCita() {
+  alert('Función para modificar cita en desarrollo');
+}
+
+// Función para el botón "Historial de Citas" del menú
+function HistorialCita() {
+  alert('Función para mostrar historial de citas en desarrollo');
+}
+
+// Función para el botón "Notificación" del menú
+function Notificación() {
+  alert('Función de notificaciones en desarrollo');
+}
+
 function closeModal() {
   const modal = document.getElementById('cita-modal');
   if (modal) modal.remove();
 }
 
-function consultarEstado() {
-  alert('Función de consultar estado en desarrollo');
-}
-
-function actualizarInformacion() {
-  alert('Función de actualizar información en desarrollo');
-}
-
-function verHistorial() {
-  alert('Función de ver historial en desarrollo');
-}
-
 // Hacer funciones disponibles globalmente
-window.agendarCita = agendarCita;
-window.cancelCita = cancelCita;
-window.consultarEstado = consultarEstado;
-window.actualizarInformacion = actualizarInformacion;
-window.verHistorial = verHistorial;
+window.marcarCita = marcarCita;
+window.cancelarCita = cancelarCita;
+window.modificarCita = modificarCita;
+window.HistorialCita = HistorialCita;
+window.Notificación = Notificación;
+window.cancelarCitaTabla = cancelarCitaTabla;
 window.closeModal = closeModal;

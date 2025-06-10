@@ -3,7 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import pool from './config/db.js';
+import pool from './config/db.js';  // <- pool importado aquí
 import authRoutes from './routes/authRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import citaRoutes from './routes/citaRoutes.js';
@@ -22,14 +22,16 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Test DB connection
-pool.getConnection()
-  .then(connection => {
+async function testDBConnection() {
+  try {
+    const connection = await pool.getConnection();
     console.log('Conexión a la base de datos establecida');
     connection.release();
-  })
-  .catch(err => {
+  } catch (err) {
     console.error('Error conectando a la base de datos:', err);
-  });
+  }
+}
+testDBConnection();
 
 // Ruta raíz de prueba
 app.get('/', (req, res) => {

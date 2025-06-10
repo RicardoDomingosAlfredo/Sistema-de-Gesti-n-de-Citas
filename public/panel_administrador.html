@@ -1,10 +1,37 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Panel de Administración</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Estilo básico para mostrar/ocultar secciones */
+    .content-section {
+      display: none;
+    }
+    .content-section.active {
+      display: block;
+    }
+    nav button {
+      display: block;
+      width: 100%;
+      margin-bottom: 8px;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    nav button.active {
+      background-color: #007bff;
+      color: white;
+    }
+    .button-group button {
+      margin-right: 10px;
+      margin-top: 10px;
+      padding: 8px 16px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
   <header class="header">
@@ -21,32 +48,48 @@
         <p id="admin-phone"></p>
       </div>
       <nav>
-        <button class="active" onclick="showSection('users')">Usuarios</button>
-        <button onclick="showSection('stats')">Estadísticas</button>
-        <button onclick="showSection('settings')">Configuración</button>
+        <button class="active" onclick="showSection('cita')">Cita</button>
+        <button onclick="showSection('oficina')">Oficina</button>
+        <button onclick="showSection('configuracion')">Configuración</button>
+        <button onclick="showSection('reportes')">Generar Reporte</button>
       </nav>
     </aside>
 
     <main class="main-content">
-      <section id="users-section" class="content-section">
-        <h2>Gestión de Usuarios</h2>
-        <div class="table-container">
-          <table id="users-table">
-            <!-- Usuarios se cargarán aquí -->
-          </table>
+      <!-- Cita -->
+      <section id="cita" class="content-section active">
+        <h2>Cita</h2>
+        <div class="button-group">
+          <button onclick="gestionarCitas()">Gestionar Citas</button>
+          <button onclick="verEstadisticasCitas()">Estadísticas</button>
         </div>
       </section>
 
-      <section id="stats-section" class="content-section hidden">
-        <h2>Estadísticas del Sistema</h2>
-        <div class="stats-grid">
-          <!-- Estadísticas se cargarán aquí -->
+      <!-- Oficina -->
+      <section id="oficina" class="content-section">
+        <h2>Oficina</h2>
+        <div class="button-group">
+          <button onclick="anadirOficina()">Añadir Oficina</button>
+          <button onclick="configuracionOficina()">Configuración</button>
         </div>
       </section>
 
-      <section id="settings-section" class="content-section hidden">
-        <h2>Configuración del Sistema</h2>
-        <!-- Configuración se cargará aquí -->
+      <!-- Configuración -->
+      <section id="configuracion" class="content-section">
+        <h2>Configuración</h2>
+        <div class="button-group">
+          <button onclick="configurarHorarios()">Configurar Horarios</button>
+          <button onclick="anadirOficinasConfiguracion()">Añadir Oficinas</button>
+        </div>
+      </section>
+
+      <!-- Generar Reporte -->
+      <section id="reportes" class="content-section">
+        <h2>Generar Reporte</h2>
+        <div class="button-group">
+          <button onclick="generarReportesMensuales()">Generar Reportes Mensuales</button>
+          <button onclick="verTodoReporte()">Ver Todo lo que pasó en el Sitio Web</button>
+        </div>
       </section>
     </main>
   </div>
@@ -55,7 +98,52 @@
     <p>© 2025 Servicio de Identificación Bengo</p>
   </footer>
 
-  <script src="auth.js"></script>
-  <script src="panel_admin.js"></script>
+  <script>
+    function showSection(sectionId) {
+      // Ocultar todas las secciones
+      document.querySelectorAll('.content-section').forEach(section => {
+        section.classList.remove('active');
+      });
+      // Remover clase active de todos los botones de nav
+      document.querySelectorAll('aside nav button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      // Mostrar la sección seleccionada
+      document.getElementById(sectionId).classList.add('active');
+      // Añadir clase active al botón seleccionado
+      event.target.classList.add('active');
+    }
+
+    // Aquí puedes implementar las funciones de los botones (ejemplo básico)
+    function gestionarCitas() {
+      alert("Función para gestionar citas.");
+    }
+    function verEstadisticasCitas() {
+      alert("Función para ver estadísticas de citas.");
+    }
+    function anadirOficina() {
+      alert("Función para añadir oficina.");
+    }
+    function configuracionOficina() {
+      alert("Función para configuración de oficina.");
+    }
+    function configurarHorarios() {
+      alert("Función para configurar horarios.");
+    }
+    function anadirOficinasConfiguracion() {
+      alert("Función para añadir oficinas desde configuración.");
+    }
+    function generarReportesMensuales() {
+      alert("Función para generar reportes mensuales.");
+    }
+    function verTodoReporte() {
+      alert("Función para ver todo lo que pasó en el sitio web.");
+    }
+
+    function logout() {
+      alert("Cerrar sesión...");
+      // Aquí pondrías la lógica para cerrar sesión
+    }
+  </script>
 </body>
 </html>
